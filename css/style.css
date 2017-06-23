@@ -27,7 +27,30 @@ header nav ul li a { color: #E7E7E7; display: block; padding: 0 20px; margin-rig
 article { width: 1000px; margin: 20px auto; overflow: hidden }
 aside { width: 250px; }
 footer { text-align: center; line-height: 40px; border-top: #E8E8E8 1px solid ; width:1000px; margin:auto}
-/**index**/
+
+/**info**/
+#mainbody { width: 100%; border-top: #000 1px solid; clear: both; overflow: hidden; }
+.info { width: 1000px; margin: 40px auto; overflow: hidden; clear: both }
+/* 图片向上翻转的动画效果 */
+.info figure { display: inline-block; width: 630px; height: 250px; position: relative; -webkit-animation: pageTop 6s ease 0.5s backwards; -moz-animation: pageTop 6s ease 0.5s backwards; -ms-animation: pageTop 6s ease 0.5s backwards; -o-animation: pageTop 6s ease 0.5s backwards; animation: pageTop 6s ease 0.5s backwards; float: left; }
+.info figcaption { padding: 20px; position: absolute; top: 20%; left: 0; background: rgba(153,153,153,.8); color: white; opacity: 0; -webkit-transition: opacity .75s ease-out; -moz-transition: opacity .75s ease-out; -o-transition: opacity .75s ease-out; transition: opacity .75s ease-out; }
+.info figure:hover figcaption { opacity: 1; } /* 用opacity 设置鼠标放上去显示文字的效果 */
+.info figcaption strong { display: block; line-height: 40px }
+.card { box-shadow: 0px 1px 0px rgba(255,255,255,.1), inset 0px 1px 1px rgba(0,0,0,.7); border-radius: 6px; background: url(../images/quote-bg.png) no-repeat top right rgba(42,42,42,1); width: 350px; float: right; height: 250px; overflow: hidden }
+.card h1 { padding: 10px }
+.card p:first-child { padding: 40px 0 0 40px } /* 结构性伪类选择符 选择第一个p标签，并且设置上、左距离是40px*/
+.card p { padding: 0 0 0 40px; line-height: 28px; text-shadow: 0px 1px 2px rgba(0,0,0,.5); color: #89919a; -webkit-animation: animations2 5s ease-in-out 5s; -moz-animation: animations2 5s ease-in-out 5s; -o-animation: animations2 5s ease-in-out 5s; -ms-animation: animations2 5s ease-in-out 5s; animation: animations2 5s ease-in-out 5s; }
+.linkmore { margin: 15px 0 0 15px }
+.linkmore li a { height: 50px; width: 50px; display: block; overflow: hidden; box-shadow: 0px 1px 0px rgba(255,255,255,.1), inset 0px 1px 1px rgba(0,0,0,.7); border-radius: 50%; float: left; margin: 0 6px; }
+.linkmore li a:hover { opacity: 0.5; -webkit-transform: rotate(30deg); -ms-transform: rotate(30deg); -moz-transform: rotate(30deg); -o-transform: rotate(30deg); transform: rotate(30deg); }
+.talk, .address, .email, .photos, .heart { background: url(../images/icons.png) no-repeat; }
+.talk { background-position: 13px 18px }
+.address { background-position: 12px -22px }
+.email { background-position: 12px -60px }
+.photos { background-position: 12px -137px }
+.heart { background-position: 13px -99px }
+
+/**/
 .banner { background: url(../images/banner_top.jpg) top center; height: 265px; overflow: hidden }
 .avatar { float: right; margin: 40px; width: 130px; height: 130px; border-radius: 100%; overflow: hidden; border: #FFF 4px solid }
 .avatar a { display: block; padding-top: 97px; width: 160px; background: url(../images/photos.jpg) no-repeat; background-size: 130px 130px }
@@ -76,187 +99,3 @@ a.readmore { background: #fd8a61; color: #fff; padding: 5px 10px; float: right; 
 .texts p:nth-child(1) { -webkit-animation: animations 3s ease-out 1s backwards; -moz-animation: animations 3s ease-out 1s backwards; -o-animation: animations 3s ease-out 1s backwards; -ms-animation: animations 3s ease-out 1s backwards; animation: animations 3s ease-out 1s backwards; }
 .texts p:nth-child(2) { -webkit-animation: animations 3s ease-out 4s backwards; -moz-animation: animations 3s ease-out 4s backwards; -o-animation: animations 3s ease-out 4s backwards; -ms-animation: animations 3s ease-out 4s backwards; animation: animations 3s ease-out 4s backwards; }
 .texts p:nth-child(3) { -webkit-animation: animations2 5s ease-in-out 7s backwards; -moz-animation: animations2 5s ease-in-out 7s backwards; -o-animation: animations2 5s ease-in-out 7s backwards; -ms-animation: animations2 5s ease-in-out 7s backwards; animation: animations2 5s ease-in-out 7s backwards; }
-@-webkit-keyframes animations { 0% {
--webkit-transform:translate(0);
-opacity:0;
-}
- 50% {
--webkit-transform:translate(30px);
-opacity:.5;
-}
- 100% {
--webkit-transform:translate(60px);
-opacity:1;
-}
-}
-
-@-moz-keyframes animations { 0% {
--moz-transform:translate(0);
-opacity:0;
-}
- 50% {
--moz-transform:translate(30px);
-opacity:.5;
-}
- 100% {
--moz-transform:translate(60px);
-opacity:1;
-}
-}
-
-@-o-keyframes animations { 0% {
--o-transform:translate(0);
-opacity:0;
-}
- 50% {
--o-transform:translate(30px);
-opacity:.5;
-}
- 100% {
--o-transform:translate(60px);
-opacity:1;
-}
-}
-
-@-ms-keyframes animations { 0% {
--ms-transform:translate(0);
-opacity:0;
-}
- 50% {
--ms-transform:translate(30px);
-opacity:.5;
-}
- 100% {
--ms-transform:translate(60px);
-opacity:1;
-}
-}
-
-@keyframes animations { 0% {
-transform:translate(0);
-opacity:0;
-}
- 50% {
-transform:translate(30px);
-opacity:.5;
-}
- 100% {
-transform:translate(60px);
-opacity:1;
-}
-}
-
-@-webkit-keyframes animations2 { 0% {
-opacity:0;
-}
- 40% {
-opacity:.8;
-}
- 45% {
-opacity:.3;
-}
- 50% {
-opacity:.8;
-}
- 55% {
-opacity:.3;
-}
- 60% {
-opacity:.8;
-}
- 100% {
-opacity:1;
-}
-}
-
-@-moz-keyframes animations2 { 0% {
-opacity:0;
-}
- 40% {
-opacity:.8;
-}
- 45% {
-opacity:.3;
-}
- 50% {
-opacity:.8;
-}
- 55% {
-opacity:.3;
-}
- 60% {
-opacity:.8;
-}
- 100% {
-opacity:1;
-}
-}
-
-@-o-keyframes animations2 { 0% {
-opacity:0;
-}
- 40% {
-opacity:.8;
-}
- 45% {
-opacity:.3;
-}
- 50% {
-opacity:.8;
-}
- 55% {
-opacity:.3;
-}
- 60% {
-opacity:.8;
-}
- 100% {
-opacity:1;
-}
-}
-
-@-ms-keyframes animations2 { 0% {
-opacity:0;
-}
- 40% {
-opacity:.8;
-}
- 45% {
-opacity:.3;
-}
- 50% {
-opacity:.8;
-}
- 55% {
-opacity:.3;
-}
- 60% {
-opacity:.8;
-}
- 100% {
-opacity:1;
-}
-}
-
-@keyframes animations2 { 0% {
-opacity:0;
-}
- 40% {
-opacity:.8;
-}
- 45% {
-opacity:.3;
-}
- 50% {
-opacity:.8;
-}
- 55% {
-opacity:.3;
-}
- 60% {
-opacity:.8;
-}
- 100% {
-opacity:1;
-}
-}
