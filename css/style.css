@@ -25,11 +25,16 @@ header nav ul li { line-height: 20px; display: inline }
 header nav ul li a { color: #E7E7E7; display: block; padding: 0 20px; margin-right: 10px; float: left }
 /**special lab*/
 article { width: 1000px; margin: 20px auto; overflow: hidden }
-aside { width: 250px; }
+aside { width: 310px; }
 footer { text-align: center; line-height: 40px; border-top: #E8E8E8 1px solid ; width:1000px; margin:auto}
-
+/*texts*/
+.texts { width: 450px; line-height: 26px; margin: 60px 0 0 20px; float: left; font-size: 14px; }
+.texts p { -webkit-transform: translate(60px); -moz-transform: translate(60px); -o-transform: translate(60px); -ms-transform: translate(60px); transform: translate(60px); text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.8), 2px 2px 3px rgba(180, 151, 151, 0.3); }
+.texts p:nth-child(1) { -webkit-animation: animations 3s ease-out 1s backwards; -moz-animation: animations 3s ease-out 1s backwards; -o-animation: animations 3s ease-out 1s backwards; -ms-animation: animations 3s ease-out 1s backwards; animation: animations 3s ease-out 1s backwards; }
+.texts p:nth-child(2) { -webkit-animation: animations 3s ease-out 4s backwards; -moz-animation: animations 3s ease-out 4s backwards; -o-animation: animations 3s ease-out 4s backwards; -ms-animation: animations 3s ease-out 4s backwards; animation: animations 3s ease-out 4s backwards; }
+.texts p:nth-child(3) { -webkit-animation: animations2 5s ease-in-out 7s backwards; -moz-animation: animations2 5s ease-in-out 7s backwards; -o-animation: animations2 5s ease-in-out 7s backwards; -ms-animation: animations2 5s ease-in-out 7s backwards; animation: animations2 5s ease-in-out 7s backwards; }
 /**info**/
-#mainbody { width: 100%; border-top: #000 1px solid; clear: both; overflow: hidden; }
+.infoDiv { width: 100%; border-top: #000 1px solid; clear: both; overflow: hidden;background: #F1F0EE }
 .info { width: 1000px; margin: 40px auto; overflow: hidden; clear: both }
 /* 图片向上翻转的动画效果 */
 .info figure { display: inline-block; width: 630px; height: 250px; position: relative; -webkit-animation: pageTop 6s ease 0.5s backwards; -moz-animation: pageTop 6s ease 0.5s backwards; -ms-animation: pageTop 6s ease 0.5s backwards; -o-animation: pageTop 6s ease 0.5s backwards; animation: pageTop 6s ease 0.5s backwards; float: left; }
@@ -53,31 +58,22 @@ footer { text-align: center; line-height: 40px; border-top: #E8E8E8 1px solid ; 
 /**/
 .banner { background: url(../images/banner_top.jpg) top center; height: 265px; overflow: hidden }
 .avatar { float: right; margin: 40px; width: 130px; height: 130px; border-radius: 100%; overflow: hidden; border: #FFF 4px solid }
-.avatar a { display: block; padding-top: 97px; width: 160px; background: url(../images/photos.jpg) no-repeat; background-size: 130px 130px }
+.avatar a { display: block; padding-top: 97px; width: 160px; background: url(../images/photo.jpg) no-repeat; background-size: 130px 130px }
 .avatar a span { display: block; margin-top: 63px; padding-top: 8px; width: 130px; height: 55px; text-align: center; line-height: 20px; color: #fff; background: rgba(0, 0, 0, .5); -webkit-transition: margin-top .2s ease-in-out; -moz-transition: margin-top .2s ease-in-out; -o-transition: margin-top .2s ease-in-out; transition: margin-top .2s ease-in-out; }
 .avatar a:hover span { display: block; margin-top: 0; }
-.template { background: #F1F0EE }
-.template h3 { border-bottom: #FFF 1px solid; width: 100%; overflow: hidden; font-size: 14px; margin: 0 0 10px; font-family: "微软雅黑"; display: block; clear: both; }
-.template h3 p { background: #474645; width: 180px; height: 25px; margin: 15px 0 0 10px; line-height: 25px; color: #fff; text-align: center; box-shadow: #999 4px 5px 1px; }
-.template h3 p span { color: #38b3d4; }
-.template ul { overflow: hidden; }
-.template ul li { margin: 3px; float: left; display: block; padding: 5px 5px 6px 5px; -webkit-transition: all 1s; -moz-transition: all 1s; -o-transition: all 1s; transition: all 1s; }
-.template li img { width: 142px; height: 80px; background: #FFF; padding: 4px; box-shadow: 0px 0px 2px rgba(0,0,0,.5); display: block; }
-.template li span { color: #F1F0EE; display: block; text-align: center; margin-top: 5px; width: 142px; overflow: hidden; text-overflow: ellipsis; height: 14px }
-.template li:hover { background: #666; padding: 5px 5px 6px 5px; }
 h2.title_tj { font: 18px "微软雅黑", Arial, Helvetica, sans-serif; color: #444; font-weight: bold; background: url(../images/h_line.jpg) repeat-x 20px center; }
 h2.title_tj span { color: #FE5187 }
 h2.title_tj p { background: #fff; width: 90px }
-.bloglist { width: 740px; overflow: hidden; background: url(../images/r_line.jpg) repeat-y right; }
+.bloglist { width: 666px; overflow: hidden; background: url(../images/r_line.jpg) repeat-y right; }
 .bloglist h3 { margin: 20px 0 10px 0; color: #333 }
 .bloglist figure { float: left; width: 183px; }
 .bloglist figure img { padding: 4px; border: #f4f2f2 1px solid; width: 175px; }
-.bloglist ul { float: left; width: 520px; margin: 10px 0px 0 15px; line-height: 20px; }
-.dateview { width: 695px; overflow: hidden; clear: both; margin: 10px 0 0 0; display: inline-block; background: #f6f6f6 url(../images/time.jpg) 15px center no-repeat; line-height: 26px; height: 26px; color: #838383; padding-left: 25px }
+.bloglist ul { float: left; width: 440px; margin: 10px 0px 0 15px; line-height: 20px; }
+.dateview { width: 615px; overflow: hidden; clear: both; margin: 10px 0 0 0; display: inline-block; background: #f6f6f6 url(../images/time.jpg) 15px center no-repeat; line-height: 26px; height: 26px; color: #838383; padding-left: 25px }
 .dateview span { margin: 0 10px; }
 .dateview span a { color: #099B43; }
 a.readmore { background: #fd8a61; color: #fff; padding: 5px 10px; float: right; margin: 20px 0 0 0 }
-.weather { background: url(../images/weather_bg.jpg) no-repeat; height: 88px; margin: 20px 0;padding: 20px 0 0 75px; }
+.weather { background: url(../images/weather_bg1.jpg) no-repeat; height: 88px; margin: 20px 0;padding: 20px 0 0 75px; }
 .news h3 { font-size: 14px; background: url(../images/r_title_bg.jpg) repeat-x center }
 .news h3 p { background: #fff; width: 70px }
 .news h3 span { color: #65b020 }
@@ -92,10 +88,21 @@ a.readmore { background: #fd8a61; color: #fff; padding: 5px 10px; float: right; 
 .paih li { line-height: 30px; height: 30px; overflow: hidden; padding-left: 24px; border-bottom: #CCC dotted 1px }
 .website { margin: 10px 0; background: #F3F3F3; border-radius: 50%; text-align: center; }
 .website li { line-height: 26px; text-shadow: #fff 1px 1px 1px; height: 26px; }
-.weixin { background: url(../images/weixin.jpg) no-repeat; width: 100%; display: inline-block; height: 274px; overflow: hidden; margin: 10px 0; clear: both }
-
-.texts { width: 350px; line-height: 26px; margin: 60px 0 0 20px; float: left; font-size: 14px; }
-.texts p { -webkit-transform: translate(60px); -moz-transform: translate(60px); -o-transform: translate(60px); -ms-transform: translate(60px); transform: translate(60px); text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.8), 2px 2px 3px rgba(180, 151, 151, 0.3); }
-.texts p:nth-child(1) { -webkit-animation: animations 3s ease-out 1s backwards; -moz-animation: animations 3s ease-out 1s backwards; -o-animation: animations 3s ease-out 1s backwards; -ms-animation: animations 3s ease-out 1s backwards; animation: animations 3s ease-out 1s backwards; }
-.texts p:nth-child(2) { -webkit-animation: animations 3s ease-out 4s backwards; -moz-animation: animations 3s ease-out 4s backwards; -o-animation: animations 3s ease-out 4s backwards; -ms-animation: animations 3s ease-out 4s backwards; animation: animations 3s ease-out 4s backwards; }
-.texts p:nth-child(3) { -webkit-animation: animations2 5s ease-in-out 7s backwards; -moz-animation: animations2 5s ease-in-out 7s backwards; -o-animation: animations2 5s ease-in-out 7s backwards; -ms-animation: animations2 5s ease-in-out 7s backwards; animation: animations2 5s ease-in-out 7s backwards; }
+/* search */
+.blackdiv { box-shadow: 0px 1px 0px rgba(255,255,255,.1), inset 0px 1px 1px rgba(0,0,0,.7); border-radius: 6px; padding: 15px; background: #222; margin-bottom: 20px; overflow: hidden; }
+.searchform { overflow: hidden; padding: 10px; }
+.searchform input { background: rgba(0, 0, 0, 0.25) url(../images/icons.png) no-repeat 3px -318px; border: 1px solid #111; width: 220px; line-height: 30px; color: #b9b9b9; padding-left: 30px; }
+/* music */
+.viny dl dd { color: #b9b9b9; line-height: 24px; }
+.art { background: url(../images/vinyl.png) no-repeat left; width: 130px; float: left; background-size: 120px; }
+.viny .art img { width: 90px; height: 90px; margin-left: 11px }
+.viny dd span { width: 12px; height: 24px; margin-right: 7px; float: left; display: block; }
+.icon-song span, .icon-artist span, .icon-album span, .icon-like span { background: url(../images/icons.png) no-repeat }
+.icon-song span { background-position: -33px -344px }
+.icon-artist span { background-position: -16px -344px }
+.icon-album span { background-position: 0 -344px }
+.icon-like span { background-position: -1px -299px; }
+.icon-like a { color: #B5783E }
+.icon-like a:hover { color: #FFF; text-decoration: underline }
+.music audio { width: 100%; padding-top: 10px }
+.weixin { background: url(../images/weixin1.jpg) no-repeat; width: 100%; display: inline-block; height: 274px; overflow: hidden; margin: 10px 0; clear: both }
