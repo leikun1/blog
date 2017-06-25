@@ -7,7 +7,7 @@
     var index = function(){
        this.topnav_a = $("#topnav a");
        this.bg_music = $("#bg_music")[0];  //背景音乐
-       this.bg_music_flag = false;
+       this.bg_music_flag = true;
     }
 
     index.prototype.init = function(){
