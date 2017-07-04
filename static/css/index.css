@@ -1,32 +1,6 @@
 @charset "UTF-8";
 /* CSS Document */
-/*base css*/
-* { margin: 0; padding: 0 }
-body { font: 12px "宋体", Arial, Helvetica, sans-serif; color: #756F71 }
-img { border: 0; display: block }
-ul { list-style: none; }
-a:link, a:visited {text-decoration: none; color: #333;}
-.left { float: left; }
-.right { float: right; }
-.blank { height: 5px; overflow: hidden; width: 100%; margin: auto; clear: both }
-.box{ width:1000px; margin:auto; overflow:hidden}
-/* -----------------------nav 一级导航----------------- */
-header { width: 100%; margin: auto; height: 60px; position: relative; overflow: hidden }
-nav a { position: relative; display: inline-block;font-size: 18px;font-family: "微软雅黑", Arial, Helvetica, sans-serif;}
-nav a:hover { text-decoration: none }
-.topnav a { margin: 0 10px; padding: 0 15px; }
-.topnav a span:first-child { z-index: 2; display: block; }
-.topnav a span:last-child { z-index: 1; display: block; color: #999; font: 12px Georgia, serif; opacity: 0; -webkit-transition: -webkit-transform 0.3s, opacity 0.3s; -moz-transition: -moz-transform 0.3s, opacity 0.3s; transition: transform 0.3s, opacity 0.3s; -webkit-transform: translateY(-100%); -moz-transform: translateY(-100%); transform: translateY(-100%); text-align: center }
-.topnav a:hover span:last-child, .topnav a:focus span:last-child { opacity: 1; -webkit-transform: translateY(0%); -moz-transform: translateY(0%); transform: translateY(0%); }
-#topnav_current { color: #e15782; }
-.en { color: #999; font-size: 12px; z-index: 1; display: block; }/* ie */
-header nav { margin: 0 auto; width: 1000px; text-align: center; padding-top: 15px }
-header nav ul li { line-height: 20px; display: inline }
-header nav ul li a { color: #E7E7E7; display: block; padding: 0 20px; margin-right: 10px; float: left }
 /**special lab*/
-article { width: 1000px; margin: 20px auto; overflow: hidden }
-aside { width: 310px; }
-footer { text-align: center; line-height: 40px; border-top: #E8E8E8 1px solid ; width:1000px; margin:auto}
 /*texts*/
 .texts { width: 450px; line-height: 26px; margin: 60px 0 0 20px; float: left; font-size: 14px; }
 .texts p { -webkit-transform: translate(60px); -moz-transform: translate(60px); -o-transform: translate(60px); -ms-transform: translate(60px); transform: translate(60px); text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.8), 2px 2px 3px rgba(180, 151, 151, 0.3); }
