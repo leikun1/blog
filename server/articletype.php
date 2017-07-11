@@ -38,7 +38,11 @@ foreach ($params as $p){
 
 if(!empty($limitStr))$conditions.=$limitStr;
 
+if(!(strpos($conditions,";") !== false)){
+  $conditions.=";";
+}
+
 $sql = sprintf("select %s from %s %s", implode(",",$dbcolarray), DB_TABLENAME,$conditions);
-echo $sql;
+//echo $sql;
 
 ?>

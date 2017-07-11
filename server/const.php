@@ -20,7 +20,7 @@ class PageVo{
            $this->queryNum = 10;
         }
         if($this->queryNum != -1){
-          return ' limit '.($this->currentPage -1)*$this->queryNum.','.$this->queryNum.";";
+          return ' limit '.($this->currentPage -1)*$this->queryNum.','.$this->queryNum;
         }else{
            return "";
         }
