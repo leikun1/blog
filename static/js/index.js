@@ -5,8 +5,8 @@
     })
 
     var index = function(){
-       this.queryArticleTypeUrl = "http://www.leikun01.com/connection/mysql.php";
-       //this.queryArticleTypeUrl = "http://localhost/connection/mysql.php";
+      //this.queryArticleTypeUrl = "http://www.leikun01.com/server/mysql.php";
+       this.queryArticleTypeUrl = "http://localhost/blogH5/server/mysql.php";
        this.bg_music = $("#bg_music")[0];  //背景音乐
        this.bg_music_flag = false;
     }
