@@ -31,7 +31,7 @@
         }
         utils.prototype.queryArticleType = function(){
           $.post(_this.queryArticleTypeUrl,{},function(data){
-              console.log(JSON.stringify(data));
+              console.log(data);
           });
         }
         return new utils();
