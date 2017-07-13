@@ -42,8 +42,7 @@ class ArticleType{
       $conditions.=";";
     }
     $sql = sprintf("select %s from %s %s", implode(",",$dbcolarray), DB_TABLENAME,$conditions);
-
-    echo $sql;
+    //echo $sql;
     return $sql;
   }
 
