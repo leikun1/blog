@@ -1,6 +1,8 @@
-<?php
+ <?php
 include 'const.php';  //引入常量代码
-include 'articletype.php';  //引入常量代码
+include 'articletype.php';
+include 'article.php';
+include 'users.php';
 
 //mysql_connect
 $conn = mysqli_connect(DB_HOST, DB_USER, DB_PASS,DB_DATABASENAME) or die("connect failed" . mysql_error());

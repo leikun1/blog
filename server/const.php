@@ -3,7 +3,7 @@
 /*数据库标准配置*/
 define(DB_HOST, 'qdm108781649.my3w.com');
 define(DB_USER, 'qdm108781649');
-define(DB_PASS, '********');  //passWord
+define(DB_PASS, 'leikun01');  //passWord
 define(DB_DATABASENAME, 'qdm108781649_db');
 class PageVo{
    public $beginNum  = 0;  //起始个数
