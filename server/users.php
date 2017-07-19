@@ -14,6 +14,7 @@ class users{
   public $usersEmail;
   public $usersPortrait;
   public $usersAddress;
+  public $usersProfessional;
   public $usersRemarks;
 
   //拼接sql
@@ -22,7 +23,7 @@ class users{
     //数据库表的列名
     $dbcolarray = array('usersPK','usersAccount', 'usersPassWord','usersName','usersEnName'
     ,'usersBrief','usersRole','usersAddTime','usersStatus','usersPhone','usersQQ'
-    ,'usersEmail','usersPortrait','usersAddress','usersRemarks');
+    ,'usersEmail','usersPortrait','usersAddress','usersProfessional','usersRemarks');
     //查询条件
     $conditions = "";
     $params = array();
@@ -59,7 +60,8 @@ class users{
     $t=new users();
     $t->usersPK=$row->usersPK;
     $t->usersAccount=$row->usersAccount;
-    $t->usersPassWord=$row->usersPassWord;
+    //$t->usersPassWord=$row->usersPassWord;
+    $t->usersPassWord='';
     $t->usersName=$row->usersName;
     $t->usersEnName=$row->usersEnName;
     $t->usersBrief=$row->usersBrief;
@@ -71,6 +73,7 @@ class users{
     $t->usersEmail=$row->usersEmail;
     $t->usersPortrait=$row->usersPortrait;
     $t->usersAddress=$row->usersAddress;
+    $t->usersProfessional=$row->usersProfessional;
     $t->usersRemarks=$row->usersRemarks;
     return $t;
   }

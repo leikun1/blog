@@ -10,6 +10,7 @@ class article{
   public $articleRemarks;
   public $articleProperty;
   public $articleStatus;
+  public $articleRecommend;
   public $articleViewTimes;
   public $articleContent;
 
@@ -18,8 +19,8 @@ class article{
     define(DB_TABLENAME, 'article');
     //数据库表的列名
     $dbcolarray = array('articlePK','articleTitle', 'articleLittleTitle'
-    ,'articleAuthor','articleAddTime','articleLabel','articleTypePK'
-    ,'articleRemarks','articleProperty','articleStatus','articleViewTimes','articleContent');
+    ,'articleAuthor','articleAddTime','articleLabel','articleTypePK','articleRemarks'
+    ,'articleProperty','articleStatus','articleRecommend','articleViewTimes','articleContent');
     //查询条件
     $conditions = "";
     $params = array();
@@ -64,6 +65,7 @@ class article{
     $t->articleRemarks=$row->articleRemarks;
     $t->articleProperty=$row->articleProperty;
     $t->articleStatus=$row->articleStatus;
+    $t->articleRecommend=$row->articleRecommend;
     $t->articleViewTimes=$row->articleViewTimes;
     $t->articleContent=$row->articleContent;
     return $t;

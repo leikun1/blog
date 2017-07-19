@@ -28,7 +28,6 @@
             articleTypeSatus:"1",
             queryNum:"-1"
           },function(data){
-            if(data && data.statusCode=="0"){
               var html = "";
               if(data.value && data.value.length > 0){
                 for(var i = 0; i < data.value.length;i++){
@@ -36,10 +35,7 @@
                   +"' >"+data.value[i].articleTypeName+"</a></li>";
                 }
               }
-               _this.learn_article_typelist.html(html);
-            }else{
-               layer.alert(data.message?data.message:"服务器异常");
-            }
+              _this.learn_article_typelist.html(html);          
           });
         }
         return new utils();

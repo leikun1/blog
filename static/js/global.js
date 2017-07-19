@@ -103,7 +103,11 @@
               layer.alert("服务器结果集解析异常");
             }else{
               var data = JSON.parse(data);
-              callback(data);
+              if(data && data.statusCode=="0"){
+                  callback(data);
+              }else{
+                  layer.alert(data.message?data.message:"服务器异常");
+              }              
             }
           },type);
         };
@@ -124,7 +128,11 @@
               return false;
             }else{
               var data = JSON.parse(data);
-              callback(data);
+              if(data && data.statusCode=="0"){
+                  callback(data);
+              }else{
+                  layer.alert(data.message?data.message:"服务器异常");
+              }
             }
           });
         }
