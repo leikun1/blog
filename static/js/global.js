@@ -5,7 +5,9 @@
   var global = {
     config : $.extend(window.config || {},{
       isDebug : true,
-      server : "http://localhost/blogH5/server/server.php",
+      server :
+      "http://www.leikun01.com/server/server.php",
+      //"http://localhost/blogH5/server/server.php",
       //"http://www.leikun01.com/server/server.php",
     }),
     GetQueryString : function(name){
@@ -107,9 +109,9 @@
                   callback(data);
               }else{
                   layer.alert(data.message?data.message:"服务器异常");
-              }              
+              }
             }
-          },type);
+          },type).error(function() { layer.close(loading);layer.alert("请求异常"); });
         };
       }
       utils.prototype.getOverRiding = function(){
@@ -134,7 +136,7 @@
                   layer.alert(data.message?data.message:"服务器异常");
               }
             }
-          });
+          }).error(function() { layer.close(loading);layer.alert("请求异常"); });
         }
       }
       utils.prototype.addHrefFunc = function(){
