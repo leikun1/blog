@@ -6,8 +6,11 @@
 
     var index = function(){
        this.bg_music = $("#bg_music")[0];  //背景音乐
-       this.bg_music_flag = true;
+       this.bg_music_flag = false;
        this.index_user_info = $(".index_user_info");
+       this.index_article_recommend = $(".index_article_recommend");
+       this.index_article_newest = $(".index_article_newest");
+       this.index_article_view = $(".index_article_view");
     }
 
     index.prototype.init = function(){
@@ -50,14 +53,23 @@
           });
         }
         utils.prototype.article = function(){
-          $.post({
-            action:"article", //类名
-          },function(data){
-              var index_article_html = "";
-              console.log(data);
-              if(data.value && data.value.length > 0){
-
-              }
+            this.articleRecommend();
+            this.articleNewest();
+            this.articleView();
+        }
+        utils.prototype.articleRecommend = function(){
+          $.post({action:"article",method:""},function(data){
+             _this.index_article_recommend.html("");
+          });
+        }
+        utils.prototype.articleNewest = function(){
+          $.post({action:"article"},function(data){
+             _this.index_article_newest.html("");
+          });
+        }
+        utils.prototype.articleView = function(){
+          $.post({action:"article"},function(data){
+             _this.index_article_view.html("");
           });
         }
         utils.prototype.playmusic = function(){

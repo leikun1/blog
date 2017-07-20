@@ -52,7 +52,12 @@ class article{
     return $sql;
   }
 
-  //设置结果集
+  function  getDetail($row){
+    $t=self::getvalue($row);
+    $t->articleContent=$row->articleContent;
+    return $t;
+  }
+
   function getvalue($row){
     $t=new article();
     $t->articlePK=$row->articlePK;
@@ -67,9 +72,9 @@ class article{
     $t->articleStatus=$row->articleStatus;
     $t->articleRecommend=$row->articleRecommend;
     $t->articleViewTimes=$row->articleViewTimes;
-    $t->articleContent=$row->articleContent;
     return $t;
   }
+
 }
 
 ?>

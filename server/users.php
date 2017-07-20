@@ -55,13 +55,16 @@ class users{
     return $sql;
   }
 
-  //设置结果集
+  function  getAccount($row){
+    $t=self::getvalue($row);
+    $t->usersAccount=$row->usersAccount;
+    $t->usersPassWord=$row->usersPassWord;
+    return $t;
+  }
+
   function getvalue($row){
     $t=new users();
     $t->usersPK=$row->usersPK;
-    $t->usersAccount=$row->usersAccount;
-    //$t->usersPassWord=$row->usersPassWord;
-    $t->usersPassWord='';
     $t->usersName=$row->usersName;
     $t->usersEnName=$row->usersEnName;
     $t->usersBrief=$row->usersBrief;

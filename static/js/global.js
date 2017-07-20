@@ -6,9 +6,8 @@
     config : $.extend(window.config || {},{
       isDebug : true,
       server :
-      "http://www.leikun01.com/server/server.php",
-      //"http://localhost/blogH5/server/server.php",
       //"http://www.leikun01.com/server/server.php",
+      "http://localhost/blogH5/server/server.php",
     }),
     GetQueryString : function(name){
       var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)","i");
