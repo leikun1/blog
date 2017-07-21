@@ -14,22 +14,32 @@ class article{
   public $articleViewTimes;
   public $articleContent;
 
-  //拼接sql
-  function getsql(){
-    define(DB_TABLENAME, 'article');
-    //数据库表的列名
+  //获取简单字符串
+  function getSimpleArr(){
     $dbcolarray = array('articlePK','articleTitle', 'articleLittleTitle'
     ,'articleAuthor','articleAddTime','articleLabel','articleTypePK','articleRemarks'
-    ,'articleProperty','articleStatus','articleRecommend','articleViewTimes','articleContent');
+    ,'articleProperty','articleStatus','articleRecommend','articleViewTimes');
+    return $dbcolarray;
+  }
+  
+ //获取全部字符串
+  function getAllArr(){
+     $dbcolarray = $this->getSimpleArr();
+     $new = array('articleContent');
+     foreach ($new as $col){
+       Array_push($dbcolarray, $col);
+     }
+     return $dbcolarray;
+  }
+
+  //拼接sql
+  function getsql($selectArr){
+    define(DB_TABLENAME, 'article');
     //查询条件
     $conditions = "";
-    $params = array();
-    //项目条目
-    foreach ($dbcolarray as $col){
-      Array_push($params, $col);
-    }
-    //查询条目
-    foreach ($params as $p){
+    if(empty($selectArr))$selectArr = 'getAllArr';
+    $dbcolarray = $this->$selectArr();
+    foreach ($dbcolarray as $p){
         if(!empty($_POST[$p])){
            if(empty($conditions)){
              $conditions ="where ".$p." = '".$_POST[$p]."'";
@@ -52,26 +62,13 @@ class article{
     return $sql;
   }
 
-  function  getDetail($row){
-    $t=self::getvalue($row);
-    $t->articleContent=$row->articleContent;
-    return $t;
-  }
-
-  function getvalue($row){
+  function getvalue($row,$selectArr){
     $t=new article();
-    $t->articlePK=$row->articlePK;
-    $t->articleTitle=$row->articleTitle;
-    $t->articleLittleTitle=$row->articleLittleTitle;
-    $t->articleAuthor=$row->articleAuthor;
-    $t->articleAddTime=$row->articleAddTime;
-    $t->articleLabel = $row->articleLabel;
-    $t->articleTypePK = $row ->articleTypePK;
-    $t->articleRemarks=$row->articleRemarks;
-    $t->articleProperty=$row->articleProperty;
-    $t->articleStatus=$row->articleStatus;
-    $t->articleRecommend=$row->articleRecommend;
-    $t->articleViewTimes=$row->articleViewTimes;
+    if(empty($selectArr))$selectArr = 'getAllArr';
+    $dbcolarray = $this->$selectArr();
+    foreach ($dbcolarray as $p){
+      $t->$p = $row->$p;
+    }
     return $t;
   }
 

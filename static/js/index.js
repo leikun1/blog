@@ -32,6 +32,7 @@
             action:"users", //类名
             usersAccount:"admin",
             usersPassWord:"admin",
+            select:"userInfoArr",
             queryNum:"1"
           },function(data){
               var user_info_html = "";
@@ -58,17 +59,17 @@
             this.articleView();
         }
         utils.prototype.articleRecommend = function(){
-          $.post({action:"article",method:""},function(data){
+          $.post({action:"article",select:"getSimpleArr"},function(data){
              _this.index_article_recommend.html("");
           });
         }
         utils.prototype.articleNewest = function(){
-          $.post({action:"article"},function(data){
+          $.post({action:"article",select:"getSimpleArr"},function(data){
              _this.index_article_newest.html("");
           });
         }
         utils.prototype.articleView = function(){
-          $.post({action:"article"},function(data){
+          $.post({action:"article",select:""},function(data){
              _this.index_article_view.html("");
           });
         }

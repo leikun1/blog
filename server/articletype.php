@@ -9,21 +9,20 @@ class ArticleType{
   public $articleTypeSatus;
   public $articleTypeRemarks;
 
+  function getAllArr(){
+     $dbcolarray = array('articleTypePK','articleTypeName', 'articleTypeValue'
+     ,'articleTypeBrief','articleTypeLogo','articleTypePPK','articleTypeSatus','articleTypeRemarks');
+     return $dbcolarray;
+  }
+
   //拼接sql
-  function getsql(){
+  function getsql($selectArr){
     define(DB_TABLENAME, 'articletype');
-    //数据库表的列名
-    $dbcolarray = array('articleTypePK','articleTypeName', 'articleTypeValue'
-    ,'articleTypeBrief','articleTypeLogo','articleTypePPK','articleTypeSatus','articleTypeRemarks');
     //查询条件
     $conditions = "";
-    $params = array();
-    //项目条目
-    foreach ($dbcolarray as $col){
-      Array_push($params, $col);
-    }
-    //查询条目
-    foreach ($params as $p){
+    if(empty($selectArr))$selectArr = 'getAllArr';
+    $dbcolarray = $this->$selectArr();
+    foreach ($dbcolarray as $p){
         if(!empty($_POST[$p])){
            if(empty($conditions)){
              $conditions ="where ".$p." = '".$_POST[$p]."'";
@@ -47,16 +46,13 @@ class ArticleType{
   }
 
   //设置结果集
-  function getvalue($row){
+  function getvalue($row,$selectArr){
     $t=new ArticleType();
-    $t->articleTypePK=$row->articleTypePK;
-    $t->articleTypeName=$row->articleTypeName;
-    $t->articleTypeValue=$row->articleTypeValue;
-    $t->articleTypeBrief=$row->articleTypeBrief;
-    $t->articleTypeLogo=$row->articleTypeLogo;
-    $t->articleTypePPK = $row->articleTypePPK;
-    $t->articleTypeSatus = $row ->articleTypeSatus;
-    $t->articleTypeRemarks=$row->articleTypeRemarks;
+    if(empty($selectArr))$selectArr = 'getAllArr';
+    $dbcolarray = $this->$selectArr();
+    foreach ($dbcolarray as $p){
+      $t->$p = $row->$p;
+    }
     return $t;
   }
 }

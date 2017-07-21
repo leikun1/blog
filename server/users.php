@@ -17,22 +17,35 @@ class users{
   public $usersProfessional;
   public $usersRemarks;
 
-  //拼接sql
-  function getsql(){
-    define(DB_TABLENAME, 'users');
-    //数据库表的列名
-    $dbcolarray = array('usersPK','usersAccount', 'usersPassWord','usersName','usersEnName'
+  function userInfoArr(){
+    $dbcolarray = array('usersPK','usersName','usersEnName'
     ,'usersBrief','usersRole','usersAddTime','usersStatus','usersPhone','usersQQ'
     ,'usersEmail','usersPortrait','usersAddress','usersProfessional','usersRemarks');
+    return $dbcolarray;
+  }
+
+  function usersAccountArr(){
+    $dbcolarray = array('usersAccount', 'usersPassWord');
+    return $dbcolarray;
+  }
+
+  function getAllArr(){
+    $dbcolarray = $this->userInfoArr();
+    $new = $this->usersAccountArr();
+    foreach ($new as $col){
+      Array_push($dbcolarray, $col);
+    }
+    return $dbcolarray;
+  }
+
+  //拼接sql
+  function getsql($selectArr){
+    define(DB_TABLENAME, 'users');
     //查询条件
     $conditions = "";
-    $params = array();
-    //项目条目
-    foreach ($dbcolarray as $col){
-      Array_push($params, $col);
-    }
-    //查询条目
-    foreach ($params as $p){
+    if(empty($selectArr))$selectArr = 'getAllArr';
+    $dbcolarray = $this->$selectArr();
+    foreach ($dbcolarray as $p){
         if(!empty($_POST[$p])){
            if(empty($conditions)){
              $conditions ="where ".$p." = '".$_POST[$p]."'";
@@ -55,29 +68,14 @@ class users{
     return $sql;
   }
 
-  function  getAccount($row){
-    $t=self::getvalue($row);
-    $t->usersAccount=$row->usersAccount;
-    $t->usersPassWord=$row->usersPassWord;
-    return $t;
-  }
 
-  function getvalue($row){
+  function getvalue($row,$selectArr){
     $t=new users();
-    $t->usersPK=$row->usersPK;
-    $t->usersName=$row->usersName;
-    $t->usersEnName=$row->usersEnName;
-    $t->usersBrief=$row->usersBrief;
-    $t->usersRole = $row->usersRole;
-    $t->usersAddTime = $row->usersAddTime;
-    $t->usersStatus=$row->usersStatus;
-    $t->usersPhone=$row->usersPhone;
-    $t->usersQQ=$row->usersQQ;
-    $t->usersEmail=$row->usersEmail;
-    $t->usersPortrait=$row->usersPortrait;
-    $t->usersAddress=$row->usersAddress;
-    $t->usersProfessional=$row->usersProfessional;
-    $t->usersRemarks=$row->usersRemarks;
+    if(empty($selectArr))$selectArr = 'getAllArr';
+    $dbcolarray = $this->$selectArr();
+    foreach ($dbcolarray as $p){
+      $t->$p = $row->$p;
+    }
     return $t;
   }
 }
