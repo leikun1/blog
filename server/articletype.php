@@ -16,12 +16,12 @@ class ArticleType{
   }
 
   //拼接sql
-  function getsql($selectArr){
+  function getsql($keyword){
     define(DB_TABLENAME, 'articletype');
     //查询条件
     $conditions = "";
-    if(empty($selectArr))$selectArr = 'getAllArr';
-    $dbcolarray = $this->$selectArr();
+    if(empty($keyword))$keyword = 'getAllArr';
+    $dbcolarray = $this->$keyword();
     foreach ($dbcolarray as $p){
         if(!empty($_POST[$p])){
            if(empty($conditions)){
@@ -33,7 +33,7 @@ class ArticleType{
     }
     //order by
     $order = $_POST["order"];
-    if(!empty($order))$conditions.="order by".$order;
+    if(!empty($order))$conditions.="order by ".$order;
     //分页
     if(!empty($limitStr))$conditions.=$limitStr;
     //添加引号
@@ -46,10 +46,10 @@ class ArticleType{
   }
 
   //设置结果集
-  function getvalue($row,$selectArr){
+  function getvalue($row,$keyword){
     $t=new ArticleType();
-    if(empty($selectArr))$selectArr = 'getAllArr';
-    $dbcolarray = $this->$selectArr();
+    if(empty($keyword))$keyword = 'getAllArr';
+    $dbcolarray = $this->$keyword();
     foreach ($dbcolarray as $p){
       $t->$p = $row->$p;
     }

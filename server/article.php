@@ -21,7 +21,7 @@ class article{
     ,'articleProperty','articleStatus','articleRecommend','articleViewTimes');
     return $dbcolarray;
   }
-  
+
  //获取全部字符串
   function getAllArr(){
      $dbcolarray = $this->getSimpleArr();
@@ -33,12 +33,12 @@ class article{
   }
 
   //拼接sql
-  function getsql($selectArr){
+  function getsql($keyword){
     define(DB_TABLENAME, 'article');
     //查询条件
     $conditions = "";
-    if(empty($selectArr))$selectArr = 'getAllArr';
-    $dbcolarray = $this->$selectArr();
+    if(empty($keyword))$keyword = 'getAllArr';
+    $dbcolarray = $this->$keyword();
     foreach ($dbcolarray as $p){
         if(!empty($_POST[$p])){
            if(empty($conditions)){
@@ -50,7 +50,7 @@ class article{
     }
     //order by
     $order = $_POST["order"];
-    if(!empty($order))$conditions.="order by".$order;
+    if(!empty($order))$conditions.="order by ".$order;
     //分页
     if(!empty($limitStr))$conditions.=$limitStr;
     //添加引号
@@ -62,10 +62,10 @@ class article{
     return $sql;
   }
 
-  function getvalue($row,$selectArr){
+  function getvalue($row,$keyword){
     $t=new article();
-    if(empty($selectArr))$selectArr = 'getAllArr';
-    $dbcolarray = $this->$selectArr();
+    if(empty($keyword))$keyword = 'getAllArr';
+    $dbcolarray = $this->$keyword();
     foreach ($dbcolarray as $p){
       $t->$p = $row->$p;
     }

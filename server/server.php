@@ -9,14 +9,14 @@ $conn = mysqli_connect(DB_HOST, DB_USER, DB_PASS,DB_DATABASENAME) or die("connec
 //读取表中纪录条数
 mysqli_query($conn,"set names 'utf8'"); //设置编码
 $action = $_POST["action"]; //类名
-$selectArr = $_POST["select"];//节选数组
+$keyword = $_POST["keyword"];//节选数组
 $r = new Result(); //结果集
 if(!empty($action)){
   $data = new $action();
-  $result = mysqli_query($conn,$data->getsql($selectArr)); //sql
+  $result = mysqli_query($conn,$data->getsql($keyword)); //sql
   $valueArr=array();
   while($row=mysqli_fetch_object($result)){
-      if(!empty($data))$valueArr[]=$data->getvalue($row,$selectArr);
+      if(!empty($data))$valueArr[]=$data->getvalue($row,$keyword);
   }
   $r->value = $valueArr;
   mysqli_free_result($result);

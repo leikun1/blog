@@ -82,18 +82,6 @@
     <p>文章<span>推荐</span></p>
   </h2>
     <div class="bloglist left index_article_recommend">
-      <!-- <h3>title</h3>
-      <figure><img src="./static/images/001.png"></figure>
-      <ul>
-        <p>Content...</p>
-        <a title="阅读全文" href="#" target="_blank" class="readmore">阅读全文>></a>
-      </ul>
-      <p class="dateview">
-        <span>2017-06-04</span>
-        <span>作者：Grace.Keven</span>
-        <span>个人博客：[<a href="#">Label</a>]</span>
-      </p> -->
-
     </div>
 
     <aside class="right">
@@ -120,7 +108,7 @@
 
         <div class="search blackdiv">
           <form class="searchform" method="get" action="#">
-            <input type="text" name="s" value="Search" onfocus="this.value=''" onblur="this.value='Search'">
+            <input type="text" name="search" value="Search" onfocus="this.value=''" onblur="this.value='Search'">
           </form>
         </div>
         <div class="viny blackdiv">
@@ -138,21 +126,48 @@
 
       </div>
       <!--news end -->
-      <a href="javascript:;" class="weixin"> </a>
 
       <!-- Baidu Button BEGIN -->
       <div id="bdshare" class="bdshare_t bds_tools_32 get-codes-bdshare">
-        <a class="bds_tsina"></a>
         <a class="bds_qzone"></a>
+        <a class="bds_tsina"></a>
         <a class="bds_tqq"></a>
         <a class="bds_renren"></a>
+        <a class="bds_t163"></a>
         <span class="bds_more"></span>
         <a class="shareCount"></a>
       </div>
       <script type="text/javascript" id="bdshare_js" data="type=tools&amp;uid=6574585"></script>
       <script type="text/javascript" id="bdshell_js"></script>
       <script type="text/javascript">
-        document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date() / 3600000)
+      window._bd_share_config = {
+          "common": {
+            "bdSnsKey":{},
+            "bdText":"",
+            "bdMini":"2",
+            "bdPic":"",
+            "bdStyle":"0",
+            "bdSize":"16"
+          },
+          "share":{},
+          "image": {
+             "viewList": ["qzone", "tsina", "tqq", "renren", "weixin"],
+             "viewText": "分享到：",
+             "viewSize": "16"
+          },
+          "selectShare": {
+            "bdContainerClass": null,
+            "bdSelectMiniList": ["qzone", "tsina", "tqq", "renren", "weixin"]
+          }
+        };
+        //with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        //document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date()/3600000)；
+        var d = new Date()
+        console.log(d);
+        console.log(36e5);
+        console.log(-d/36e5);
+        console.log(~(-d/36e5) );
+        document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" +~(-new Date()/36e5)
       </script>
       <!-- Baidu Button END -->
       </aside>

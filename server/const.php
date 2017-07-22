@@ -4,7 +4,7 @@
 define(IS_DEBUG, true);
 define(DB_HOST, 'qdm108781649.my3w.com');
 define(DB_USER, 'qdm108781649');
-define(DB_PASS, '********');  //passWord
+define(DB_PASS, 'leikun01');  //passWord
 define(DB_DATABASENAME, 'qdm108781649_db');
 class PageVo{
    public $beginNum  = 0;  //起始个数
@@ -12,8 +12,8 @@ class PageVo{
    public $totalCount;  //总个数
    public $currentPage = 1;  //当前页
 
+   //不传查询个数默认查十条，传查询个数，-1，不查
    function getLimitStr(){
-        //不传查询个数默认查十条，传查询个数，-1，不查
         if(empty($this->currentPage) || $this->currentPage < 0){
             $this->currentPage = 1;
         }
