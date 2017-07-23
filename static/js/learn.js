@@ -6,6 +6,11 @@
 
     var learn = function(){
        this.learn_article_typelist = $(".learn_article_typelist");
+       this.article_detail_url = "../page/new.html";
+       this.index_article_recommend = $(".index_article_recommend");
+       this.index_article_newest = $(".index_article_newest");
+       this.index_article_view = $(".index_article_view");
+       this.article_detail_btnStr = ".article_detail_btn";       
     }
 
     learn.prototype.init = function(){
@@ -35,7 +40,7 @@
                   +"' >"+data.value[i].articleTypeName+"</a></li>";
                 }
               }
-              _this.learn_article_typelist.html(html);          
+              _this.learn_article_typelist.html(html);
           });
         }
         return new utils();

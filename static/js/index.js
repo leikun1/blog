@@ -124,9 +124,6 @@
             _this.index_article_view.html(article_view_html);
           });
         }
-        utils.prototype.share = function(){
-          
-        }
         utils.prototype.playmusic = function(){
           window.setTimeout(function(){
             if(_this.bg_music_flag)_this.bg_music.play();
