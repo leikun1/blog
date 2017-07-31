@@ -1,27 +1,27 @@
 (function($){
     $(function(){
-      var learn_instance = new learn();
-      learn_instance.init();
+      var family_instance = new family();
+      family_instance.init();
     })
 
-    var learn = function(){
+    var family = function(){
        this.document = $(document);
-       this.learn_article_typelist = $(".learn_article_typelist");
+       this.family_article_typelist = $(".family_article_typelist");
        this.article_detail_url = "../page/new.html";
-       this.learn_article_recommend = $(".learn_article_recommend");
-       this.learn_article_newest = $(".learn_article_newest");
-       this.learn_article_view = $(".learn_article_view");
+       this.family_article_recommend = $(".family_article_recommend");
+       this.family_article_newest = $(".family_article_newest");
+       this.family_article_view = $(".family_article_view");
        this.article_detail_btnStr = ".article_detail_btn";
     }
 
-    learn.prototype.init = function(){
+    family.prototype.init = function(){
        this.utils().queryArticleType();
        this.utils().article();
        this.bindEvents();
     }
 
     //事件绑定
-    learn.prototype.bindEvents = function(){
+    family.prototype.bindEvents = function(){
       var _this = this;
       _this.document.on("click",_this.article_detail_btnStr,function(e){
          var data_pk = $(this).attr("data-pk");
@@ -29,14 +29,14 @@
       });
     }
 
-    learn.prototype.utils = function(){
+    family.prototype.utils = function(){
         var _this = this;
         var utils = function(){}
         utils.prototype.queryArticleType = function(){
           $.post({
             action:"articletype", //类名
-            articleTypePPK:"1",
-            articleTypeSatus:"1",
+            articleTypePPK:"2",
+            articleTypeSatus:"2",
             queryNum:"-1"
           },function(data){
               var html = "";
@@ -46,7 +46,7 @@
                   +"' >"+data.value[i].articleTypeName+"</a></li>";
                 }
               }
-              _this.learn_article_typelist.html(html);
+              _this.family_article_typelist.html(html);
           });
         }
         utils.prototype.article = function(){
@@ -57,8 +57,8 @@
         utils.prototype.articleRecommend = function(){
           $.post({
             action:"article",keyword:"getSimpleArr",
-            articleTypePPK:"1",
-            articleTypePK:"1",
+            articleTypePPK:"2",
+            articleTypePK:"2",
             articleRecommend:"1"
          },function(data){
              var article_recommend_html = "";
@@ -89,13 +89,13 @@
              "<b>41</b>"+
              "</a>"+
              "<a href='javascript:;' >&gt;&gt;</a></div>";
-             _this.learn_article_recommend.html(article_recommend_html);
+             _this.family_article_recommend.html(article_recommend_html);
           });
         }
         utils.prototype.articleNewest = function(){
           $.post({action:"article",keyword:"getSimpleArr",
-          articleTypePPK:"1",
-          articleTypePK:"1",
+          articleTypePPK:"2",
+          articleTypePK:"2",
           order:"articleViewTimes desc"},function(data){
             var article_newest_html = "";
             if(data.value && data.value.length > 0){
@@ -105,13 +105,13 @@
                  "' data-pk='"+data.value[i].articlePK+"' class=\"article_detail_btn\" >"+articleTitle+"</a></li>";;
               }
             }
-            _this.learn_article_newest.html(article_newest_html);
+            _this.family_article_newest.html(article_newest_html);
           });
         }
         utils.prototype.articleView = function(){
           $.post({action:"article",keyword:"getSimpleArr",
-          articleTypePPK:"1",
-          articleTypePK:"1",
+          articleTypePPK:"2",
+          articleTypePK:"2",
           order:"articleAddTime desc"},function(data){
             var article_view_html = "";
             if(data.value && data.value.length > 0){
@@ -121,7 +121,7 @@
                  "' data-pk='"+data.value[i].articlePK+"' class=\"article_detail_btn\" >"+articleTitle+"</a></li>";;
               }
             }
-            _this.learn_article_view.html(article_view_html);
+            _this.family_article_view.html(article_view_html);
           });
         }
         return new utils();
